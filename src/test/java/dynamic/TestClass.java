@@ -13,7 +13,7 @@ import static org.junit.jupiter.api.DynamicTest.dynamicTest;
 
 public class TestClass {
 
-    Step step = ()->  System.out.println("a");
+    Step step =  ()->  System.out.println("a");
     Step step1 = ()-> System.out.println("b");
     Step step2 = ()-> System.out.println("c");
 
