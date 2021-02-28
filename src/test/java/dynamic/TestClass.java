@@ -18,9 +18,9 @@ public class TestClass {
 
     private final Logger logger = LoggerFactory.getLogger(TestClass.class);
 
-    Step step1 = ()-> logger.info(()-> "running step1");
-    Step step2 = ()-> logger.info(()-> "running step2");
-    Step step3 = ()-> logger.info(()-> "running step3");
+    final Step step1 = ()-> logger.info(()-> "running step1");
+    final Step step2 = ()-> logger.info(()-> "running step2");
+    final Step step3 = ()-> logger.info(()-> "running step3");
 
     Executable getExecutable (){
         return step1.andThen(step2).andThen(step3);
