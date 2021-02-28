@@ -32,8 +32,8 @@ public class TestClass {
     @TestFactory
     Collection<DynamicTest> testArray(){
         return Arrays.asList(
-                dynamicTest("testArray", combineSteps(new Step[]{step, step1, step2})),
-                dynamicTest("testArray2", combineSteps(new Step[]{step2, step1, step2}))
+                dynamicTest("testArray", combineSteps(step, step1, step2)),
+                dynamicTest("testArray2", combineSteps(step2, step1, step2, step))
         );
     }
 }
