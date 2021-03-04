@@ -11,6 +11,7 @@ public class WebClient {
 
     public static void goToUrl(Map<String, String> parameters) {
         LOGGER.info(() -> String.format("Navigating to url %s", parameters.get("Url")));
+        LOGGER.info(() -> String.format("Navigating to url %s", parameters.get("global.key1")));
     }
 }
 

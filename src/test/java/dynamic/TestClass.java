@@ -2,10 +2,10 @@ package dynamic;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import dynamic.model.ParameterizedStep;
 import dynamic.model.TestCase;
 import org.junit.jupiter.api.DynamicTest;
 import org.junit.jupiter.api.TestFactory;
-import org.junit.jupiter.api.function.Executable;
 import org.junit.platform.commons.logging.Logger;
 import org.junit.platform.commons.logging.LoggerFactory;
 
@@ -22,11 +22,15 @@ public class TestClass {
     private final ObjectMapper om = new ObjectMapper();
 
     private TestCase prepareSteps() throws JsonProcessingException {
-        return new TestCase(new Executable[]{serialize(GO_TO_EBAY_URL), serialize(SEND_GET), serialize(RUN_DB_QUERY)});
+        return new TestCase(new ParameterizedStep[]{serialize(GO_TO_EBAY_URL), serialize(SEND_GET), serialize(RUN_DB_QUERY)});
     }
 
     private TestCase prepareSteps2() throws JsonProcessingException {
-        return serializeTC(TEST_CASE);
+        return serializeSteps(STEP_ARRAY);
+    }
+
+    private TestCase prepareTestCase() throws JsonProcessingException {
+        return serializeTC(TC);
     }
 
     @TestFactory
@@ -35,7 +39,10 @@ public class TestClass {
         TestCase tc2 = prepareSteps2();
         return Arrays.asList(
                 dynamicTest("Steps", steps(tc)),
-                dynamicTest("TC", steps(tc2))
+                dynamicTest("TC", steps(tc2)),
+                dynamicTest("TC2", steps(
+                        prepareTestCase())
+                )
         );
     }
 }
