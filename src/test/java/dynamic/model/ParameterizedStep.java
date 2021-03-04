@@ -16,6 +16,14 @@ public class ParameterizedStep implements Executable {
         this.parameters = parameters;
     }
 
+    public InfraStep getStep() {
+        return step;
+    }
+
+    public Map<String, String> getParameters() {
+        return parameters;
+    }
+
     public void setStep(InfraStep step) {
         this.step = step;
     }

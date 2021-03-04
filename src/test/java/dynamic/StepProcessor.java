@@ -16,6 +16,6 @@ public class StepProcessor {
     }
 
     static Executable steps(TestCase tc){
-        return steps(tc.steps);
+        return steps(tc.getSteps());
     }
 }

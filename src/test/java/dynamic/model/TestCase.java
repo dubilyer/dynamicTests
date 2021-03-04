@@ -6,6 +6,18 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class TestCase {
-    public Map<String, String> params = new HashMap<>();
-    public Executable[] steps;
+    private Map<String, String> params = new HashMap<>();
+    private Executable[] steps;
+
+    public TestCase(Executable[] steps) {
+        this.steps = steps;
+    }
+
+    public Map<String, String> getParams() {
+        return params;
+    }
+
+    public Executable[] getSteps() {
+        return steps;
+    }
 }
