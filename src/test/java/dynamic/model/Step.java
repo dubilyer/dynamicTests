@@ -1,4 +1,4 @@
-package dynamic;
+package dynamic.model;
 
 import org.junit.jupiter.api.function.Executable;
 
