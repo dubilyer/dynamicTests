@@ -10,15 +10,15 @@ import java.util.function.Function;
 
 import static org.junit.platform.commons.logging.LoggerFactory.*;
 
-public enum InfraStep {
-    GO_TO_URL(parameters -> () -> WebClient.goToUrl(parameters)), //call to infra method instead
+public enum InfraStepFactory {
+    GO_TO_URL(parameters -> () -> WebClient.goToUrl(parameters)),
     RUN_DB_QUERY(parameters -> () -> DBClient.selectFromDb(parameters)),
     SEND_GET(parameters -> () -> RestClient.get(parameters));
 
-    private static final Logger logger = getLogger(InfraStep.class);
+    private static final Logger logger = getLogger(InfraStepFactory.class);
     Function<Map<String, String>, Step> parameterizedStepFunction;
 
-    InfraStep(Function<Map<String, String>, Step> step) {
+    InfraStepFactory(Function<Map<String, String>, Step> step) {
         this.parameterizedStepFunction = step;
     }
 

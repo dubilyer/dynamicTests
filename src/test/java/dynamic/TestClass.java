@@ -18,9 +18,6 @@ import static org.junit.jupiter.api.DynamicTest.dynamicTest;
 
 public class TestClass {
 
-    private final Logger logger = LoggerFactory.getLogger(TestClass.class);
-    private final ObjectMapper om = new ObjectMapper();
-
     private TestCase prepareSteps() throws JsonProcessingException {
         return new TestCase(new ParameterizedStep[]{serialize(GO_TO_EBAY_URL), serialize(SEND_GET), serialize(RUN_DB_QUERY)});
     }
@@ -38,8 +35,8 @@ public class TestClass {
         TestCase tc = prepareSteps();
         TestCase tc2 = prepareSteps2();
         return Arrays.asList(
-                dynamicTest("Steps", steps(tc)),
-                dynamicTest("TC", steps(tc2)),
+//                dynamicTest("Steps", steps(tc)),
+//                dynamicTest("TC", steps(tc2)),
                 dynamicTest("TC2", steps(
                         prepareTestCase())
                 )

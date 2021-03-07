@@ -5,18 +5,18 @@ import org.junit.jupiter.api.function.Executable;
 import java.util.Map;
 
 public class ParameterizedStep implements Executable {
-    InfraStep step;
+    InfraStepFactory step;
 
     Map<String, String> parameters;
 
     public ParameterizedStep(){};
 
-    public ParameterizedStep(InfraStep step, Map<String, String> parameters) {
+    public ParameterizedStep(InfraStepFactory step, Map<String, String> parameters) {
         this.step = step;
         this.parameters = parameters;
     }
 
-    public InfraStep getStep() {
+    public InfraStepFactory getStep() {
         return step;
     }
 
@@ -24,7 +24,7 @@ public class ParameterizedStep implements Executable {
         return parameters;
     }
 
-    public void setStep(InfraStep step) {
+    public void setStep(InfraStepFactory step) {
         this.step = step;
     }
 
